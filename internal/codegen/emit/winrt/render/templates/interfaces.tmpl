@@ -1,0 +1,45 @@
+{{define "interface"}}// {{.TypeName}} is the WinRT interface {{.FullName}}.
+{{- if .GUID}}
+// IID: {{.GUID}}
+{{- end}}
+{{- if .ExclusiveTo}}
+// Exclusive to the {{.ExclusiveTo}} runtime class.
+{{- end}}
+{{- if .Requires}}
+// Requires: {{join .Requires ", "}}.
+{{- end}}
+type {{.TypeName}} struct {
+	syswinrt.IInspectable
+}
+
+{{if .IIDVar}}// {{.IIDVar}} is the interface identifier for {{.TypeName}}.
+var {{.IIDVar}} = {{.IIDLiteral}}
+
+{{end -}}
+{{range .Methods}}
+{{- if .SkipComment}}// {{.SkipComment}}
+
+{{else}}
+{{- range .CommentLines}}// {{.}}
+{{end -}}
+func (self *{{$.TypeName}}) {{.GoName}}({{.ParamStr}}) {{.ReturnSig}} {
+{{- range .Preamble}}
+	{{.}}
+{{- end}}
+{{- if .ResultDecl}}
+	{{.ResultDecl}}
+{{- end}}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[{{.Slot}}], uintptr(unsafe.Pointer(self)){{range .ArgExprs}}, {{.}}{{end}})
+{{- if eq .ReturnKind 0}}
+	return win32.ErrIfFailed(int32(r1))
+{{- else if eq .ReturnKind 2}}
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return {{.ZeroReturn}}, err
+	}
+	return {{.ResultExpr}}, nil
+{{- else}}
+	return {{.ResultExpr}}, win32.ErrIfFailed(int32(r1))
+{{- end}}
+}
+
+{{end}}{{end}}{{end}}

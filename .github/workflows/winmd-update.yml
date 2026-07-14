@@ -1,0 +1,86 @@
+name: winmd update
+
+# Watches NuGet for new Microsoft.Windows.SDK.Contracts releases. When one
+# appears: download the pinned contract winmds, re-ingest, regenerate the
+# committed bindings, and open a PR whose body carries the semantic API diff
+# between the old and new metadata.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Ingest the currently committed winmds (diff baseline)
+        run: go run ./cmd/generate ingest --out old-metadata
+
+      - name: Fetch the latest contract winmds from NuGet
+        id: fetch
+        shell: bash
+        run: |
+          go run ./cmd/generate fetch-metadata --version latest | tee fetch.log
+          if git diff --quiet -- metadata/winmd; then
+            echo "updated=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "updated=true" >> "$GITHUB_OUTPUT"
+            echo "version=$(python -c "import json;d=json.load(open('metadata/winmd/PROVENANCE.json'));print((d[0] if isinstance(d,list) else d)['version'])")" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Re-ingest the new winmds
+        if: steps.fetch.outputs.updated == 'true'
+        run: go run ./cmd/generate ingest
+
+      - name: Validate the new metadata
+        if: steps.fetch.outputs.updated == 'true'
+        run: go run ./cmd/generate validate
+
+      - name: Semantic API diff for the PR body
+        if: steps.fetch.outputs.updated == 'true'
+        shell: bash
+        run: |
+          {
+            echo "Automated update to Microsoft.Windows.SDK.Contracts ${{ steps.fetch.outputs.version }}."
+            echo
+            go run ./cmd/generate diff --old old-metadata --new metadata/winrt | head -c 60000
+          } > pr-body.md
+
+      # One command regenerates the committed bindings tree (the
+      # Windows.Globalization closure) and rewrites the diagnostics baseline
+      # (reviewed via this PR).
+      - name: Regenerate bindings and baseline
+        if: steps.fetch.outputs.updated == 'true'
+        run: go run ./cmd/generate bindings --namespace Windows.Globalization --diagnostics metadata/diagnostics-baseline.json
+
+      - name: Build and test the regenerated tree
+        if: steps.fetch.outputs.updated == 'true'
+        run: |
+          go build ./...
+          go test ./internal/... ./acceptance/
+
+      - name: Open pull request
+        if: steps.fetch.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/winmd-update
+          commit-message: "chore(metadata): update contract winmds to ${{ steps.fetch.outputs.version }}"
+          title: "chore(metadata): update contract winmds to ${{ steps.fetch.outputs.version }}"
+          body-path: pr-body.md
+          add-paths: |
+            metadata/winmd/
+            metadata/diagnostics-baseline.json
+            bindings/
+          delete-branch: true

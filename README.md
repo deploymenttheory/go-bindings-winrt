@@ -1,6 +1,7 @@
 # go-bindings-winrt
 
-**Status: bootstrapping — runtime layer landed.** Idiomatic Go bindings for
+**Status: generator online — generated bindings for `Windows.Globalization`
+(+ its `Windows.Foundation` closure) shipping.** Idiomatic Go bindings for
 the **Windows Runtime** (`Windows.*` namespaces: toasts/notifications,
 Bluetooth LE, Windows Hello, geolocation, camera, `Windows.Management.*`
 MDM/provisioning, …), the fourth member of the deploymenttheory Windows
@@ -14,17 +15,26 @@ bindings family:
 - [go-bindings-wdk](https://github.com/deploymenttheory/go-bindings-wdk) —
   the WDK / user-mode Native API surface (shipping)
 
-What works today: `bindings/runtime/winrt` — Windows Runtime
-initialization, HSTRING lifecycle, runtime-class activation, and interface
-querying, proven by live tests. The hand-written
-`Windows.Globalization.Calendar` vertical and the generator follow per
-[docs/ROADMAP.md](docs/ROADMAP.md).
+What works today:
+
+- `bindings/runtime/winrt` — Windows Runtime initialization, HSTRING
+  lifecycle, runtime-class activation, and interface querying, proven by
+  live tests.
+- `bindings/winrt/globalization` + `bindings/winrt/foundation` — GENERATED
+  from the pinned contract winmds (`go run ./cmd/generate bindings
+  --namespace Windows.Globalization`): interfaces with absolute vtable-slot
+  dispatch, non-composable runtime classes, enums, and value structs, with
+  a determinism gate and a diagnostics ratchet in CI. Live acceptance tests
+  and the `examples/calendar` vertical run entirely over generated code.
+
+Wider namespace coverage, events/delegates, statics, and factory
+constructors follow per [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ```go
-import winrt "github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+import "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/globalization"
 
-inspectable, err := winrt.ActivateInstance("Windows.Globalization.Calendar")
-// query to a typed interface with winrt.QueryInterface[T], call methods,
+calendar, err := globalization.NewCalendar()
+// calendar.SetToNow(), calendar.Year(), calendar.MonthAsFullString(), …
 // Release when done
 ```
 
