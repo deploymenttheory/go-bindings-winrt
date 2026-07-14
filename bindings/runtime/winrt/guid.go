@@ -46,7 +46,7 @@ func ParseGUID(s string) (win32.GUID, error) {
 	guid.Data2 = uint16(data2)
 	guid.Data3 = uint16(data3)
 	bytesHex := trimmed[19:23] + trimmed[24:]
-	for i := 0; i < 8; i++ {
+	for i := range 8 {
 		b, err := parse(bytesHex[i*2:i*2+2], 8)
 		if err != nil {
 			return win32.GUID{}, err

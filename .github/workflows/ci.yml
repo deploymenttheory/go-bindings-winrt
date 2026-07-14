@@ -40,3 +40,9 @@ jobs:
 
       - name: Runtime tests (live HSTRING/activation calls)
         run: go test ./bindings/runtime/...
+
+      - name: Slot/IID guard (hand-written vertical vs committed winmd)
+        run: go test ./internal/...
+
+      - name: Acceptance tests (live WinRT calls)
+        run: go test ./acceptance/

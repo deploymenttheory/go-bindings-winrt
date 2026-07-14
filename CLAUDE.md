@@ -23,7 +23,10 @@ deploymenttheory Windows bindings family:
 ```sh
 go build ./...
 go vet ./...
-go test ./bindings/runtime/...   # live WinRT calls; needs Windows
+go test ./bindings/runtime/...            # live WinRT calls; needs Windows
+go test ./internal/... ./acceptance/...   # slot/IID guard + live acceptance
+go run ./cmd/generate fetch-metadata      # refresh the pinned contract winmds
+go run ./examples/calendar                # the vertical, end to end
 ```
 
 ## Architecture
@@ -55,7 +58,16 @@ go test ./bindings/runtime/...   # live WinRT calls; needs Windows
 - WinRT calling convention: methods return HRESULT at the ABI; the logical
   return is the trailing `[out, retval]` param. IInspectable occupies vtable
   slots 0–5; an interface's first method is slot 6, in MethodDef order.
-- Naming: `get_X` → `X()`, `put_X` → `SetX()`; plain methods keep IDL names.
+- Naming: `get_X` → `X()`, `put_X` → `SetX()`; plain methods keep their
+  metadata names. Overloaded methods share a MethodDef name in metadata —
+  the `[Overload]` attribute carries the unique name, which is what the Go
+  method is called (e.g. `MonthAsFullString`, metadata name `MonthAsString`).
+- Hand-written slots/IIDs are pinned against the committed winmd by
+  `internal/verify` — a metadata bump that reorders anything fails there,
+  not in a corrupted live call.
+- `metadata/winmd/` (two contract winmds + PROVENANCE.json) is committed;
+  `go run ./cmd/generate fetch-metadata` refreshes it (`--version latest`
+  for updates).
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
 - See `docs/ROADMAP.md` for the wave plan and out-of-scope list
