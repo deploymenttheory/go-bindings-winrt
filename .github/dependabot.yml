@@ -13,7 +13,6 @@ updates:
       # This follows conventional commits and works with release-please
       prefix: "chore(deps)"
       prefix-development: "chore(deps-dev)"
-      include: "scope"
 
   # Maintain dependencies for Go modules
   - package-ecosystem: "gomod"
@@ -26,4 +25,3 @@ updates:
       # This follows conventional commits and works with release-please
       prefix: "chore(deps)"
       prefix-development: "chore(deps-dev)"
-      include: "scope"
