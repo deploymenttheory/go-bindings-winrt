@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Build & test
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Build
+        run: go build ./...
+
+      # Everything is hand-written until the generator lands (M5); once
+      # generated syscall wrappers exist, restrict vet to the hand-written
+      # trees (they trip vet's unsafe.Pointer heuristic by design).
+      - name: Vet
+        run: go vet ./...
+
+      # amd64 and arm64 share the LLP64 layout, so the same bindings must
+      # compile for both; 386 is deliberately excluded by build constraints.
+      - name: Cross-compile for windows/arm64
+        run: go build ./bindings/...
+        env:
+          GOOS: windows
+          GOARCH: arm64
+
+      - name: Runtime tests (live HSTRING/activation calls)
+        run: go test ./bindings/runtime/...
