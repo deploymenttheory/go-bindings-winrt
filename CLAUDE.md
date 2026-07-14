@@ -50,6 +50,11 @@ go run ./examples/calendar                # the vertical, end to end
     vtable-pointer word, layout-compatible with `win32.IUnknown`.
   - `guid.go` — `ParseGUID`/`MustGUID` for hand-written IID vars (generated
     code uses struct literals).
+  - `delegate.go` — Go-implemented WinRT delegates (`NewDelegate`): a
+    4-slot COM object over shared `syscall.NewCallback` trampolines (one
+    set per Invoke arity, 1–3 raw ABI words), a pin registry keyed by the
+    native `this` word, and QI answering the delegate IID + IUnknown +
+    IAgileObject. Live-proven by event registration in `acceptance/`.
 - **`internal/winrtmeta` + `internal/winrtmeta/ingest`** — the IR and its
   producer: the pinned contract winmds project into per-namespace
   `metadata/winrt/<Namespace>.winrtmeta.json` files (gitignored). Methods
