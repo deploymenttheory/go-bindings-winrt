@@ -25,11 +25,14 @@ const (
 // contractFiles are the per-contract winmds consumed from the Contracts
 // package (which ships ~94 of them; there is no merged Windows.winmd on
 // NuGet). FoundationContract carries the Windows.Foundation core types;
-// UniversalApiContract carries the bulk of the Windows.* surface. Order is
+// UniversalApiContract carries the bulk of the Windows.* surface;
+// WwanContract closes UniversalApiContract's only cross-contract TypeRefs
+// (Windows.Networking.Connectivity.WwanConnectionProfileDetails). Order is
 // the PROVENANCE.json record order.
 var contractFiles = []string{
 	"ref/netstandard2.0/Windows.Foundation.FoundationContract.winmd",
 	"ref/netstandard2.0/Windows.Foundation.UniversalApiContract.winmd",
+	"ref/netstandard2.0/Windows.Networking.Connectivity.WwanContract.winmd",
 }
 
 // runFetchMetadata downloads the Microsoft.Windows.SDK.Contracts NuGet
