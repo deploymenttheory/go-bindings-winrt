@@ -1,7 +1,14 @@
-# .gitattributes snippet to force users to use same line endings for project.
-# 
-# Handle line endings automatically for files detected as text
-# and leave all files detected as binary untouched.
+# Normalize line endings so the repository is byte-identical across OSes.
+# Text is stored as LF; binaries are left untouched.
 * text=auto
 
+*.go   text eol=lf
+*.mod  text eol=lf
+*.sum  text eol=lf
+*.tmpl text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
 *.json text eol=lf
+
+*.winmd binary

@@ -45,11 +45,11 @@ linters:
     - errorlint      # flag missing %w wraps
     - err113         # enforce correct error-handling patterns
 
-    # Terraform‐specific safety & resource handling
+    # Security & resource handling
     - bodyclose      # makes sure every HTTP response body is closed
     - gosec          # scans for security issues (e.g. hardcoded credentials)
     
-    # Specifically important for API clients (Microsoft 365 API)
+    # Context propagation & nil-safety
     - contextcheck   # check whether function uses a non-inherited context
     - noctx          # finds sending http request without context.Context
     - nilnil         # checks that there is no simultaneous return of nil error and invalid value
@@ -61,7 +61,7 @@ linters:
     - gocyclo        # warn on high cyclomatic complexity
     - wrapcheck      # checks that errors from external packages are wrapped
     
-    # API/Terraform specific
+    # Struct tags
     - musttag        # enforce field tags in (un)marshaled structs
     - tagliatelle    # checks struct tags (important for JSON/XML APIs)
 
@@ -100,11 +100,6 @@ linters:
         linters:
           - forbidigo
 
-      # silence known gosec warning in this vendored code
-      - path: internal/hmac/
-        text: "weak cryptographic primitive"
-        linters:
-          - gosec
 
       # drop staticcheck’s SA9003 messages
       - linters:

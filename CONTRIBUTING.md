@@ -1,17 +1,22 @@
-# Contribution
+# Contributing
 
-Thanks for considering contributing to this project! We are really glad you are reading this, because we need volunteer developers to help this project come to fruition.
-
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+Thanks for your interest in improving this project.
 
 ## Issues
 
-If you find any bugs, please file an issue in the [GitHub issues][GitHubIssues] page. Please fill out the provided template with the appropriate information.
+Please file bugs and feature requests on the
+[issue tracker](https://github.com/deploymenttheory/go-bindings-winrt/issues), filling out
+the template. Small, well-described reports are genuinely useful contributions.
 
-If you are taking the time to mention a problem, even a seemingly minor one, it is greatly appreciated, and a totally valid contribution to this project. Thank you!
+## Pull requests
 
-<!-- References -->
+- PR titles follow [Conventional Commits](https://www.conventionalcommits.org/)
+  (`feat:`, `fix:`, `docs:`, `chore:`, …) — this is CI-enforced.
+- Run `gofmt`/`go vet` and keep the build and tests green.
+- By contributing you agree to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-<!-- Local -->
-[GitHubIssues]: <https://github.com/segraef/Template/issues>
-[Contributing]: CONTRIBUTING.md
+## Status
+
+This repository is **pre-work** — no Go code yet. See
+[docs/ROADMAP.md](docs/ROADMAP.md) for the planned scope and prerequisites
+before opening implementation PRs.

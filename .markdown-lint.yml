@@ -1,0 +1,5 @@
+# markdownlint configuration referenced by .github/workflows/linter.yml.
+default: true
+MD013: false # line length
+MD033: false # inline HTML
+MD041: false # first line need not be a top-level heading

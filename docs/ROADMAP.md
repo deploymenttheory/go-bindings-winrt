@@ -67,3 +67,9 @@ consumers prove it), so they are pure additions:
 4. First namespace targets, chosen for product value:
    `Windows.Management.*` (MDM enrollment/provisioning),
    `Windows.UI.Notifications` (toasts), `Windows.Devices.Bluetooth`.
+
+## CI note
+
+The Go lint/build workflows are disabled (`.github/workflows/go-lint.yml.disabled`)
+until this repository has a `go.mod` and Go code. Re-enable them when the
+generator lands.

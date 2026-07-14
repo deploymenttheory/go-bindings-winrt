@@ -1,5 +1,10 @@
 # Security Policy
 
-If you discover a security issue in this repo, please submit it through the [GitHub Security Bug Bounty](<https://hackerone.com/github>)
+## Reporting a vulnerability
 
-Thanks for helping make GitHub safe for everyone.
+Please report security issues **privately** through this repository's GitHub
+Security Advisories: the **Security** tab → **Report a vulnerability**. Do not
+open a public issue for a security report.
+
+We will acknowledge the report and work with you on a fix and coordinated
+disclosure.
