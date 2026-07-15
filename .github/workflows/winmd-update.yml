@@ -81,6 +81,7 @@ jobs:
           body-path: pr-body.md
           add-paths: |
             metadata/winmd/
+            metadata/winrt/
             metadata/diagnostics-baseline.json
             bindings/
           delete-branch: true
