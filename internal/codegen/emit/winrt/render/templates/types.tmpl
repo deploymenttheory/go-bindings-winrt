@@ -1,0 +1,35 @@
+{{define "enum"}}// {{.TypeName}} is {{.FullName}}.
+{{- if .IsFlags}}
+// Bitmask — values may be combined with |.
+{{- end}}
+type {{.TypeName}} {{.BaseType}}
+
+{{if .Members}}const (
+{{- range .Members}}
+	{{.Name}} {{$.TypeName}} = {{.Value}}
+{{- end}}
+)
+
+// String returns the {{.TypeName}} constant's name, or its numeric form when
+// the value is not a known constant.
+func (e {{.TypeName}}) String() string {
+	switch e {
+{{- range .UniqueMembers}}
+	case {{.Name}}:
+		return "{{.Name}}"
+{{- end}}
+	default:
+		return fmt.Sprintf("{{.TypeName}}(%d)", {{.BaseType}}(e))
+	}
+}
+
+{{end}}{{end}}
+
+{{define "struct"}}// {{.TypeName}} is {{.FullName}}.
+type {{.TypeName}} struct {
+{{- range .Fields}}
+	{{.Name}} {{.GoType}}
+{{- end}}
+}
+
+{{end}}

@@ -43,11 +43,11 @@ func TestParseGUIDErrors(t *testing.T) {
 	for _, s := range []string{
 		"",
 		"not-a-guid",
-		"ca30221d-86d9-40fb-a26b-d44eb7cf08e",    // one short
-		"ca30221d-86d9-40fb-a26b-d44eb7cf08eaa",  // one long
-		"ca30221dx86d9-40fb-a26b-d44eb7cf08ea",   // bad separator
-		"gg30221d-86d9-40fb-a26b-d44eb7cf08ea",   // non-hex
-		"{ca30221d-86d9-40fb-a26b-d44eb7cf08ea",  // unbalanced brace
+		"ca30221d-86d9-40fb-a26b-d44eb7cf08e",   // one short
+		"ca30221d-86d9-40fb-a26b-d44eb7cf08eaa", // one long
+		"ca30221dx86d9-40fb-a26b-d44eb7cf08ea",  // bad separator
+		"gg30221d-86d9-40fb-a26b-d44eb7cf08ea",  // non-hex
+		"{ca30221d-86d9-40fb-a26b-d44eb7cf08ea", // unbalanced brace
 	} {
 		if _, err := ParseGUID(s); err == nil {
 			t.Errorf("ParseGUID(%q) succeeded, want error", s)

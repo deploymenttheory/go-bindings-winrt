@@ -1,0 +1,26 @@
+{{define "class"}}// {{.TypeName}} is the {{.FullName}} runtime class, surfaced through its
+// default interface {{.DefaultInterface}}. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type {{.TypeName}} struct {
+	{{.DefaultInterface}}
+}
+
+{{if .CtorName}}// {{.CtorName}} activates {{.FullName}} through its default
+// constructor.
+func {{.CtorName}}() (*{{.TypeName}}, error) {
+	instance, err := winrt.ActivateInstance("{{.FullName}}")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[{{.TypeName}}](unsafe.Pointer(instance), {{.DefaultIIDRef}})
+}
+
+{{end -}}
+{{range .QueryMethods}}// {{.GoName}} queries the instance's {{.InterfaceType}} interface.
+// The returned reference is owned by the caller.
+func (self *{{$.TypeName}}) {{.GoName}}() (*{{.InterfaceType}}, error) {
+	return winrt.QueryInterface[{{.InterfaceType}}](unsafe.Pointer(self), {{.IIDRef}})
+}
+
+{{end}}{{end}}

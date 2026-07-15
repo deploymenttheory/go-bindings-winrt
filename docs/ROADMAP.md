@@ -6,17 +6,27 @@ handling, CsWinRT.
 
 ## Metadata source
 
-- **Consume the pre-merged `Windows.winmd`** from the
-  `Microsoft.Windows.SDK.Contracts` NuGet package (what windows-rs uses),
-  rather than merging the per-contract winmds under
-  `C:\Program Files (x86)\Windows Kits\10\References\<ver>\` or the
-  per-namespace files in `C:\Windows\System32\WinMetadata\` ourselves
-  (Microsoft's `mdmerge` produces the union).
+- **Consume per-contract winmds from `Microsoft.Windows.SDK.Contracts`**
+  (pinned in `metadata/winmd/PROVENANCE.json`, fetched by
+  `go run ./cmd/generate fetch-metadata`):
+  `ref/netstandard2.0/Windows.Foundation.FoundationContract.winmd` +
+  `ref/netstandard2.0/Windows.Foundation.UniversalApiContract.winmd`.
+  *(Correction to the original plan: there is **no** pre-merged
+  `Windows.winmd` on NuGet — the Contracts package ships ~94 per-contract
+  files and its `Windows.WinMD` entry is a type-forwarder facade;
+  windows-rs's merged file is GitHub-only with its own filtering policy.
+  UniversalApiContract carries the entire roadmap target surface. If ingest
+  ever hits a TypeRef into a third contract, pin that file as an additional
+  PROVENANCE record.)*
 - Same ECMA-335 physical format as win32metadata, with WinRT-specific rules:
-  version string "Windows Runtime 1.2", `tdWindowsRuntime` flag on every
-  public type, and **TypeRef indirection everywhere** (system winmds never
-  reference TypeDefs directly, even same-file — required for projection
-  substitutions like `IVector<T>` → `IList<T>`).
+  version string `WindowsRuntime 1.4` (in the 26100 contracts),
+  `tdWindowsRuntime` flag on every public type, and **TypeRef indirection
+  everywhere** (system winmds never reference TypeDefs directly, even
+  same-file — required for projection substitutions like `IVector<T>` →
+  `IList<T>`).
+- **Overloads**: overloaded methods share their MethodDef *name* (two
+  `MonthAsString` rows); the `[Overload]` attribute carries the unique name
+  (`MonthAsFullString`). Projected Go names use the unique overload name.
 - Scale: thousands of types across ~50+ `Windows.*` namespaces.
 
 ## Reader prerequisites (land in go-winmd, versioned + additive)
@@ -51,6 +61,14 @@ consumers prove it), so they are pure additions:
   `[Overload]`/`[DefaultOverload]`.
 - **Delegates** (TypeDef extending `System.MulticastDelegate`, `Invoke`
   method, `[Guid]`), **events** returning `EventRegistrationToken`.
+  *Status: the Go-implemented delegate runtime
+  (`bindings/runtime/winrt/delegate.go` — shared NewCallback vtables, pin
+  registry, IAgileObject-answering QI) is landed and live-tested against
+  `MediaProtectionManager.RebootNeeded`. Generator **emission** of events
+  and delegate types is deferred: the committed surface's only event uses
+  `TypedEventHandler`2` — generic, blocked on pinterface IID computation
+  (next wave); ~142 non-generic-delegate events exist across the wider
+  surface and light up when their namespaces are emitted.*
 - **mscorlib marker types** (`System.Object`, `System.Guid`, `System.Enum`,
   `System.ValueType`, `System.MulticastDelegate`, `System.Attribute`) are
   type-system signals only — never resolve them as real types.

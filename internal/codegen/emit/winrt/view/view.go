@@ -1,0 +1,135 @@
+// Package view is the pure-data IR consumed by the WinRT render templates.
+// It imports no metadata or typemap packages — every field is a fully
+// resolved fragment, so templates only branch and interpolate, never decide.
+// (The render firewall.)
+package view
+
+// EnumModel is one named enum type with its members.
+type EnumModel struct {
+	TypeName string
+	// FullName is the metadata name ("Windows.Globalization.DayOfWeek") for
+	// the doc comment.
+	FullName string
+	BaseType string
+	IsFlags  bool
+	Members  []EnumMemberModel
+	// UniqueMembers is Members deduped by value (first name wins) — the
+	// switch cases of String(); duplicate case values would not compile.
+	UniqueMembers []EnumMemberModel
+}
+
+// EnumMemberModel is one enum constant.
+type EnumMemberModel struct {
+	Name  string
+	Value string
+}
+
+// StructModel is one WinRT value struct.
+type StructModel struct {
+	TypeName string
+	FullName string
+	Fields   []StructFieldModel
+}
+
+// StructFieldModel is one struct field, fully resolved.
+type StructFieldModel struct {
+	Name   string
+	GoType string
+}
+
+// InterfaceModel is one WinRT interface: a single vtable-pointer struct
+// rooted at IInspectable, dispatching through absolute slots.
+type InterfaceModel struct {
+	TypeName string
+	FullName string
+	// GUID is the IID string for the doc comment ("" when absent).
+	GUID string
+	// ExclusiveTo names the owning runtime class ("" for shared interfaces).
+	ExclusiveTo string
+	// Requires lists required interfaces as display names (doc comment only;
+	// WinRT interfaces never embed at the ABI).
+	Requires []string
+	// IIDVar/IIDLiteral declare the IID variable (skipped when GUID is "").
+	IIDVar     string
+	IIDLiteral string
+	// Methods holds emitted methods and skipped-slot comments, interleaved
+	// in absolute slot order so the vtable layout stays auditable.
+	Methods []MethodModel
+}
+
+// Return-shape discriminants for MethodModel.ReturnKind. The template
+// branches on these and nothing else.
+const (
+	// RetError: no logical return — `return win32.ErrIfFailed(int32(r1))`.
+	RetError = 0
+	// RetValue: `return <ResultExpr>, win32.ErrIfFailed(int32(r1))`.
+	RetValue = 1
+	// RetString: HSTRING retval — ErrIfFailed short-circuits before
+	// TakeHString consumes the handle.
+	RetString = 2
+)
+
+// MethodModel is one vtable method (or, when SkipComment is set, a
+// skipped-slot marker keeping the vtable layout auditable).
+type MethodModel struct {
+	// SkipComment renders a standalone `// slot N: name skipped: reason`
+	// comment; every other field is unused when it is non-empty.
+	SkipComment string
+
+	CommentLines []string
+	GoName       string
+	ParamStr     string
+	// ReturnSig is the complete return signature ("error",
+	// "(string, error)", "(foundation.DateTime, error)").
+	ReturnSig string
+	// Slot is the absolute vtable index (6 + MethodDef index).
+	Slot int
+	// Preamble holds statements that convert idiomatic params into raw
+	// syscall words (HSTRING inputs, bool→0/1) before dispatch.
+	Preamble []string
+	// ArgExprs are the SyscallN argument words after the self word,
+	// including the trailing retval out-pointer when the method has one.
+	ArgExprs []string
+	// ReturnKind selects the body shape (Ret* constants).
+	ReturnKind int
+	// ResultDecl declares the retval local ("var result int32"); empty for
+	// RetError.
+	ResultDecl string
+	// ResultExpr converts the retval local to the Go return value
+	// ("result", "result != 0", "winrt.TakeHString(result)").
+	ResultExpr string
+	// ZeroReturn is the zero value returned alongside a non-nil error in
+	// preamble/RetString short-circuits (`""`, "0", "nil").
+	ZeroReturn string
+}
+
+// ClassModel is one non-composable runtime class: a struct embedding its
+// default interface by value.
+type ClassModel struct {
+	TypeName string
+	FullName string
+	// DefaultInterface is the embedded default interface's Go type name
+	// (possibly package-qualified).
+	DefaultInterface string
+	// DefaultIIDRef is the address expression of the default interface's
+	// IID variable ("&IID_ICalendar").
+	DefaultIIDRef string
+	// CtorName is the direct-activation constructor ("NewCalendar"); ""
+	// when the class is not directly activatable.
+	CtorName string
+	// QueryMethods project the class's other non-generic instance
+	// interfaces through QueryInterface.
+	QueryMethods []QueryMethodModel
+}
+
+// QueryMethodModel is one As<Interface> query method on a runtime class.
+type QueryMethodModel struct {
+	// GoName is "As" + the interface name with its I prefix stripped
+	// (AsTimeZoneOnCalendar).
+	GoName string
+	// InterfaceType is the target interface's Go type name (possibly
+	// package-qualified).
+	InterfaceType string
+	// IIDRef is the address expression of the interface's IID variable.
+	IIDRef string
+}
